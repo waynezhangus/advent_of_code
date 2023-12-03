@@ -1,14 +1,30 @@
-// Run directly on: https://adventofcode.com/2023/day/1/input developer console
+// Run directly in https://adventofcode.com/2023/day/2/input developer console or local Node.js environment
 
-let input = document
-  .querySelector("pre")
-  .innerText.split("\n")
-  .filter((item) => item !== "");
+let input;
 
-let res1 = input.reduce((acc, item) => {
+let isNode = typeof exports !== "undefined" && typeof window === "undefined";
+
+if (isNode) {
+  const fs = require("fs");
+  try {
+    input = fs.readFileSync("01.txt", "utf8");
+    input = input.split("\n").filter((item) => item !== "");
+  } catch (err) {
+    console.error(err);
+  }
+} else {
+  input = document
+    .querySelector("pre")
+    .innerText.split("\n")
+    .filter((item) => item !== "");
+}
+
+let sum1 = input.reduce((acc, item) => {
   let numArr = item.match(/\d/g);
   return acc + parseInt(numArr.at(0) + numArr.at(-1));
 }, 0);
+
+console.log(sum1);
 
 let matches = [
   "one",
@@ -30,7 +46,9 @@ input = input.map((item) =>
   )
 );
 
-let res2 = input.reduce((acc, item) => {
+let sum2 = input.reduce((acc, item) => {
   let numArr = item.match(/\d/g);
   return acc + parseInt(numArr.at(0) + numArr.at(-1));
 }, 0);
+
+console.log(sum2);
