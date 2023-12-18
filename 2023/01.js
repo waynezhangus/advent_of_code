@@ -1,4 +1,4 @@
-// Run directly in https://adventofcode.com/2023/day/2/input developer console or local Node.js environment
+// Run directly in https://adventofcode.com/2023/day/1/input developer console or local Node.js environment
 
 let input;
 
